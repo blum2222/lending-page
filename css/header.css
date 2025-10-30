@@ -1,6 +1,5 @@
 .header__logo {
     font-size: 1.5em;
-    font-weight: 600;
     color: rgb(var(--ids__text-RGB)) !important;
     text-decoration: none !important;
     &:hover {
@@ -9,31 +8,24 @@
 } 
 .header {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0;
-    padding-top: 16px;
+    align-items: center; /* вертикальное выравнивание всех элементов */
+    padding: calc(var(--ids__density) * 0.6em) 0; /* симметричные вертикальные отступы */
 }
 
 .header__button {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
     background-color: rgb(var(--ids__link-RGB));
     color: #fff !important;
     list-style: none !important;
-    padding: 16px 12px;
+    padding: 8px 12px;
     border-radius: 4px;
     text-decoration: none !important;
     &:hover {
         background-color: rgb(var(--ids__hover-RGB));
     }
 }
-/* Центрируем меню по вертикали и горизонтали в хедере */
-.header__menu {
-    flex: 1 1 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 /* Лого и CTA фиксированные по ширине, не растягиваются */
 .header > .header__logo { flex: 0 0 auto; }
 .header > a:last-child { flex: 0 0 auto; }
@@ -45,24 +37,29 @@
     line-height: 1;
 }
 
+/* Header menu: прижато вправо, выровнено по центру */
 .header__menu {
-    margin: 0 !important; 
-    margin-bottom: 0 !important;
-    padding: 0 !important;
-    list-style: none !important;
+    flex: 0 1 auto;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    gap: calc(var(--ids__density) * 1.2em); /* отступы между пунктами */
+    margin: 0 !important;
+    margin-left: auto !important; /* logo stays left, everything else goes right */
+    margin-right: calc(var(--ids__density) * 1em) !important; /* отступ от кнопки */
+    padding: 0 !important;
+    list-style: none !important;
     text-decoration: none !important;
   }
   
   .header__menu li {
-    margin-top: 16px;
-    margin-left: 8px;
-    margin-right: 8px;
+    margin: 0 !important;
     padding: 0 !important;
     list-style: none;
     position: static !important;
     text-decoration: none !important;
+    display: flex;
+    align-items: center;
   }
 
   /* kill IDS decorative bullet injected via li::before */
@@ -71,16 +68,19 @@
   }
 
   .header__menu li a {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
     text-decoration: none !important;
     margin: 0 !important;
-    padding: 0 !important;
+    padding: 8px 0 !important; /* такой же вертикальный padding как у кнопки */
     list-style: none;
     position: static !important;
-    text-decoration: none !important;
-  }
-
-  .header__menu li a {
-    text-decoration: none !important;
+    color: rgb(var(--ids__text-RGB)) !important;
+    &:hover {
+        color: rgb(var(--ids__hover-RGB)) !important;
+        text-decoration: underline !important;
+    }
   }
 
 /* Reset list styles inside header to remove IDS bullets */
@@ -111,4 +111,10 @@
 
 .ids__header .header__logo::before {
     content: none !important;
+}
+
+.demo__item {
+    background-color: rgb(var(--ids__accent-RGB), 0.3);
+    border-radius: 12px;
+    padding: 200px 120px;
 }
