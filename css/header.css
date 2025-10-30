@@ -1,12 +1,114 @@
 .header__logo {
-    img {
-        width: 24px;
-        height: 24px;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: rgb(var(--ids__text-RGB)) !important;
+    text-decoration: none !important;
+    &:hover {
+        color: rgb(var(--ids__hover-RGB)) !important;
     }
-}
+} 
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0;
+    padding-top: 16px;
+}
+
+.header__button {
+    background-color: rgb(var(--ids__link-RGB));
+    color: #fff !important;
+    list-style: none !important;
+    padding: 16px 12px;
+    border-radius: 4px;
+    text-decoration: none !important;
+    &:hover {
+        background-color: rgb(var(--ids__hover-RGB));
+    }
+}
+/* Центрируем меню по вертикали и горизонтали в хедере */
+.header__menu {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Лого и CTA фиксированные по ширине, не растягиваются */
+.header > .header__logo { flex: 0 0 auto; }
+.header > a:last-child { flex: 0 0 auto; }
+
+/* normalize vertical alignment for all header links */
+.header a {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.header__menu {
+    margin: 0 !important; 
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    display: flex;
+    align-items: center;
+    text-decoration: none !important;
+  }
+  
+  .header__menu li {
+    margin-top: 16px;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0 !important;
+    list-style: none;
+    position: static !important;
+    text-decoration: none !important;
+  }
+
+  /* kill IDS decorative bullet injected via li::before */
+  .header__menu li::before {
+    content: none !important;
+  }
+
+  .header__menu li a {
+    text-decoration: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none;
+    position: static !important;
+    text-decoration: none !important;
+  }
+
+  .header__menu li a {
+    text-decoration: none !important;
+  }
+
+/* Reset list styles inside header to remove IDS bullets */
+.ids__header ul,
+.ids__header ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ids__header li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: static;
+}
+
+.ids__header li::before {
+    content: none !important;
+}
+
+/* Ensure logo never shows bullet or left padding in header */
+.ids__header .header__logo {
+    position: static !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+.ids__header .header__logo::before {
+    content: none !important;
 }

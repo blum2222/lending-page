@@ -123,12 +123,26 @@
   & ul {
     & li {
       list-style-type: none;
-      padding-left: calc(var(--ids__density) * 0.75em);
+    }
 
-      &:before {
-        position: absolute;
-        left: 0;
-        content: "⋅ ";
+    /* Plain list utility: disables IDS bullets and padding */
+    &.ids__list-plain {
+      & li {
+        padding-left: 0;
+      }
+      & li::before { content: none; }
+    }
+
+    /* Default IDS bullets apply only when ul does NOT have ids__list-plain */
+    &:not(.ids__list-plain) {
+      & li {
+        padding-left: calc(var(--ids__density) * 0.75em);
+
+        &:before {
+          position: absolute;
+          left: 0;
+          content: "⋅ ";
+        }
       }
     }
   }
