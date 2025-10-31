@@ -10,11 +10,12 @@
 }
 
 .header__logo {
-    font-size: 1.2em;
+    font-size: 0.9em;
+    font-weight: 600;
     color: rgb(var(--ids__text-RGB)) !important;
     text-decoration: none !important;
     &:hover {
-        color: rgb(var(--ids__hover-RGB)) !important;
+        color: rgb(var(--ids__link-RGB)) !important;
     }
 } 
 .header {
@@ -235,4 +236,10 @@
     .header__button {
         margin-left: auto;
     }
+}
+
+.hero__link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
