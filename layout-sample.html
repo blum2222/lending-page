@@ -31,9 +31,24 @@
           </ul>
     
           <a class="header__button" href="downloads/app.exe">Попробовать</a>
+          
+          <button class="header__burger" aria-label="Меню">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </nav>
       </div>
     </header>
+    
+    <div class="mobile-menu">
+      <ul class="mobile-menu__list">
+        <li><a href="#pricing">Цены</a></li>
+        <li><a href="#docs">Документация</a></li>
+        <li><a href="#blog">Блог</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+    </div>
     <div class="ids__space L"></div>
     <div class="ids__space L"></div>
 
@@ -50,5 +65,27 @@
     </main>
 
     <footer></footer>
+    <script>
+      // Mobile menu toggle
+      const burger = document.querySelector('.header__burger');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const body = document.body;
+      
+      burger.addEventListener('click', function() {
+        mobileMenu.classList.toggle('mobile-menu--active');
+        burger.classList.toggle('header__burger--active');
+        body.style.overflow = mobileMenu.classList.contains('mobile-menu--active') ? 'hidden' : '';
+      });
+      
+      // Close menu when clicking on a link
+      const mobileLinks = document.querySelectorAll('.mobile-menu__list a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('mobile-menu--active');
+          burger.classList.remove('header__burger--active');
+          body.style.overflow = '';
+        });
+      });
+    </script>
   </body>
 </html>
